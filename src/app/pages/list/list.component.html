@@ -1,1 +1,9 @@
-<p>list works!</p>
+<div class="characters-grid">
+  <mat-card *ngFor="let character of data.results" appearance="outlined" class="character-card">
+    <img mat-card-image [src]="character.image" [alt]="character.name">
+    <mat-card-content>
+      <h2>{{ character.name }}</h2>
+      <p><strong>Raza:</strong> {{ character.species }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
