@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
-import { AddEditComponent } from './pages/add-edit/add-edit.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { ListComponent } from './pages/list/list.component';
+import { EditComponent } from './pages/edit/edit.component';
+
 
 export const routes: Routes = [
   { path: '', component: ListComponent },
-  { path: 'edit', component: AddEditComponent },
+  { path: 'edit/:id', component: EditComponent },
   { path: 'detail', component: DetailComponent },
 ];

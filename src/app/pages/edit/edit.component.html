@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit()" class="form-container">
+  <h1>Editar Personaje</h1>
+  <img mat-card-image [src]="character.image" [alt]="character.name" width="250px">
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput [formControl]="nameControl">
+    <mat-error *ngIf="nameControl.hasError('required')">
+      El nombre es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Raza</mat-label>
+    <input matInput [formControl]="raceControl">
+    <mat-error *ngIf="nameControl.hasError('required')">
+      La raza es obligatoria
+    </mat-error>
+  </mat-form-field>
+
+  <button 
+    mat-raised-button 
+    color="primary"
+    type="submit"
+    [disabled]="nameControl.invalid || raceControl.invalid"
+    >
+      Guardar
+    </button>
+</form>

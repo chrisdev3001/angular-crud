@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
-import { Character, CharacterList } from '../../types';
+
+import { CharacterList } from '../../types';
 import { LocalStorageService } from '../../services/local-storage.service';
-import * as dummyResponseAPI from '../../../dummy/data.json';
 import { CardComponent } from '../../components/card/card.component';
+import * as dummyResponseAPI from '../../../dummy/data.json';
 
 const API_DATA_KEY_STATE = 'api-data'
 
@@ -17,7 +20,10 @@ const API_DATA_KEY_STATE = 'api-data'
 export class ListComponent {
   data = [] as unknown as CharacterList
 
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(
+    private localStorageService: LocalStorageService,
+    private router: Router
+  ) {}
 
   setCharacters(freshData: CharacterList) {
     this.data = freshData
@@ -37,6 +43,6 @@ export class ListComponent {
   }
 
   onClickCharacter(id: number) {
-    console.log(id, 'navegar a detalle con id...')
+    this.router.navigate(['/edit', id]);
   }
 }
