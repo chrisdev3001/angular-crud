@@ -4,7 +4,7 @@ import { DetailComponent } from './pages/detail/detail.component';
 import { ListComponent } from './pages/list/list.component';
 
 export const routes: Routes = [
-  { path: 'list', component: ListComponent },
+  { path: '', component: ListComponent },
   { path: 'edit', component: AddEditComponent },
   { path: 'detail', component: DetailComponent },
 ];

@@ -4,14 +4,15 @@ import {MatCardModule} from '@angular/material/card';
 import { Character, CharacterList } from '../../types';
 import { LocalStorageService } from '../../services/local-storage.service';
 import * as dummyResponseAPI from '../../../dummy/data.json';
+import { CardComponent } from '../../components/card/card.component';
 
 const API_DATA_KEY_STATE = 'api-data'
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, CardComponent],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+  styleUrl: './list.component.css',
 })
 export class ListComponent {
   data = [] as unknown as CharacterList
@@ -33,5 +34,9 @@ export class ListComponent {
     }    
 
     console.log(this.data, 'this.data')
+  }
+
+  onClickCharacter(id: number) {
+    console.log(id, 'navegar a detalle con id...')
   }
 }
